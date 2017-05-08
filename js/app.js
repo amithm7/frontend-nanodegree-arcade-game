@@ -3,6 +3,13 @@ var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
+    // Initial Coordinates
+    this.x = -101;
+    this.y = 83 * (Math.ceil(Math.random() * 3)) - 20;
+
+    // Speed of enemy vehicles
+    this.speed = Math.floor(Math.random() * (210 - 70) + 70);
+
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -14,6 +21,13 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.x += dt * this.speed;
+
+    // Resets enemy to starting (left) side after reaching end (right)
+    if (this.x > 101 * 5) {
+        this.x = -101;
+        this.y = 83 * (Math.ceil(Math.random() * 3)) - 20;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -72,6 +86,9 @@ Player.prototype.handleInput = function(keys) {
 var allEnemies = [];
 var player = new Player;
 
+for (i = 0; i < 4; i++) {
+    allEnemies.push(new Enemy());
+}
 
 
 // This listens for key presses and sends the keys to your
