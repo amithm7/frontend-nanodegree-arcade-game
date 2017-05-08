@@ -45,19 +45,19 @@ var Player = function() {
 
     // Sprite URL
     this.sprite = 'images/char-boy.png';
-}
+};
 
 Player.prototype.update = function() {
     // If player reaches water, resets the player
     if (this.y < 83) {
         setTimeout(function() {Player.call(player);},300);
     }
-}
+};
 
 // Draw the player on the screen
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
+};
 
 // Move player according to arrow keys
 Player.prototype.handleInput = function(keys) {
@@ -80,14 +80,14 @@ Player.prototype.handleInput = function(keys) {
                 this.y += 83;
             } break;
     }
-}
+};
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [];
-var player = new Player;
+var player = new Player();
 
 for (i = 0; i < 4; i++) {
     allEnemies.push(new Enemy());
