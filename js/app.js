@@ -1,8 +1,5 @@
 // Enemies our player must avoid
 var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
     // Initial Coordinates
     this.x = -101;
     this.y = 83 * (Math.ceil(Math.random() * 3)) - 20;
@@ -40,9 +37,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// Player class
 var Player = function() {
     // Inital Coordinates
     this.x = 101*2;
