@@ -28,6 +28,11 @@ Enemy.prototype.update = function(dt) {
         this.x = -101;
         this.y = 83 * (Math.ceil(Math.random() * 3)) - 20;
     }
+    
+    // Checking Collision and reset player
+    if (this.x > player.x - 70 && this.x < player.x + 70 && this.y + 20 == player.y) {
+        Player.call(player);
+    }
 };
 
 // Draw the enemy on the screen, required method for game
