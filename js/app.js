@@ -24,11 +24,53 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+var Player = function() {
+    // Inital Coordinates
+    this.x = 101*2;
+    this.y = 83*5;
+
+    // Sprite URL
+    this.sprite = 'images/char-boy.png';
+}
+
+Player.prototype.update = function() {
+    // ?
+}
+
+// Draw the player on the screen
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+// Move player according to arrow keys
+Player.prototype.handleInput = function(keys) {
+    // If statements check the boundary, keeping the player contained inside.
+    switch (keys) {
+        case 'left' :
+            if (this.x > 0) {
+                this.x -= 101;
+            } break;
+        case 'right' :
+            if (this.x < 101*4) {
+                this.x += 101;
+            } break;
+        case 'up' :
+            if (this.y > 0) {
+                this.y -= 83;
+            } break;
+        case 'down' :
+            if (this.y < 83*5) {
+                this.y += 83;
+            } break;
+    }
+}
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+var allEnemies = [];
+var player = new Player;
 
 
 
