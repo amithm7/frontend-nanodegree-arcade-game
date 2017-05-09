@@ -50,7 +50,7 @@ var Player = function() {
 Player.prototype.update = function() {
     // If player reaches water, resets the player
     if (this.y < 83) {
-        setTimeout(function() {Player.call(player);},300);
+        Player.call(player);
     }
 };
 
